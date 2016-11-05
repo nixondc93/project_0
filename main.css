@@ -1,0 +1,39 @@
+
+*{
+
+}
+
+header{
+
+}
+body{
+  width: 100%;
+}
+
+.container{
+  border: 1px solid black;
+  width: 100%;
+}
+.row{
+  height: 200px;
+  background: url('cars/street.svg');
+  border: 1px solid black;
+}
+
+
+.player{
+  width: 100%;
+  height: 80px;
+}
+
+
+
+.car{
+  background-color: white;
+  padding: -10px;
+  margin-left: 1%;
+  margin-top: 60px;
+  height: 80px;
+  width: 90px;
+
+}
