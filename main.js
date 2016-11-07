@@ -55,16 +55,16 @@ $(document).ready(function() {
 	//
 	//
 
-
-
-
+  var mili = $('#milisec');
+  var mins = $('#minutes');
+  var secs = $('#seconds');
 	var begin = $('.begin');
 	var container = $('#container');
 	var car = $('#car');
 	var pole = $('.pole');
 	var pole_1 = $('#pole_1');
 	var pole_2 = $('#pole_2');
-	var score = $('#score');
+	
 	var speed_span = $('#speed');
 	var restart = $('#restart_btn');
 
@@ -75,12 +75,11 @@ $(document).ready(function() {
 	var pole_initial_height = parseInt(pole.css('height'));
 	var car_left = parseInt(car.css('left'));
 	var car_height = parseInt(car.height());
-	var speed =  parseInt($('#speed').val());
-  // console.log(speed);
+	// var speed =  parseInt($('#speed').val());
+  var speed = 25;
 
-	var go_up = false;
-	var score_updated = false;
-	var game_over = false;
+
+
 
 
 
@@ -88,8 +87,23 @@ $(document).ready(function() {
 
 
 
+      // var date = Date.prototype.getTime();
+      // secs.html(''+date+'');
+      var sec = 0;
+      function timePading (t){ return t > 9 ? t : '0'+ t }
+      var timer = setInterval( function(){
+        mili.html(timePading(++sec%60))
+        secs.html(timePading(parseInt(sec/60,10)));
+        mins.html(timePading(parseInt(sec/60/60,10)));
+      }, 10);
+
+
+
 
     //car movement
+
+
+    // function movement(){
     $(document).keydown(function(e) {
     var position1 = $('#car').position();
 		switch (e.keyCode) {
@@ -107,7 +121,7 @@ $(document).ready(function() {
 				break;
 		}
 	});
-
+// }
     function collision($div1, $div2) {
        var x1 = $div1.offset().left;
        var y1 = $div1.offset().top;
@@ -125,10 +139,10 @@ $(document).ready(function() {
        if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
        return true;
    }
-   console.log(container_height);
+
    function stopTheGame(){
       clearInterval(movement);
-      car.off();
+      clearInterval(timer);
    }
 
 		var movement = setInterval(function() {
@@ -158,20 +172,14 @@ $(document).ready(function() {
 
 //begin game button click
 	begin.click(function(e) {
-      begin.empty();
-      var countdown = [3, 2, 1, 'GO', ' '];
-        for (var i = 0; i > countdown.length; i++ ) {
-          setInterval(function(){
-            $(begin).text(countdown[i]).css('font-size:', '25px');
-          }, 1000);
-        }
 		begin.slideUp();
 		game();
+
 
 	});
 
   restart.click(function(e){
-
+    location.reload()
   });
 
 });
