@@ -75,7 +75,8 @@ $(document).ready(function() {
 	var pole_initial_height = parseInt(pole.css('height'));
 	var car_left = parseInt(car.css('left'));
 	var car_height = parseInt(car.height());
-	var speed = 20;
+	var speed =  parseInt($('#speed').val());
+  // console.log(speed);
 
 	var go_up = false;
 	var score_updated = false;
@@ -124,18 +125,18 @@ $(document).ready(function() {
        if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
        return true;
    }
-
+   console.log(container_height);
    function stopTheGame(){
       clearInterval(movement);
+      car.off();
    }
 
 		var movement = setInterval(function() {
-			if (collision(car, pole_1) || collision(car, pole_2)){
+			if (collision(car, pole_1) || collision(car, pole_2) || parseInt(car.css('top')) <= 0 || parseInt(car.css('top')) > container_height - car_height){
         // console.log('test');
         stopTheGame();
 
       }
-
 
 
 
