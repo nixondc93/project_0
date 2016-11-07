@@ -22,11 +22,12 @@
     <script type="text/javascript" src ="main.js"></script>
   </head>
   <body>
-    <header>
+    <!-- <header>
       <h1 class="title">It's Race Time!</h1>
       <h3>Player 1 Press D</h3>
       <h3>Player 2 press L</h3>
       <p>Choose the number of laps!</p>
+      <button type="button" name="reset">Reset</button>
       <select name="select">
         <option value="value1" selected >2 Laps</option>
         <option value="value2" >4 Laps</option>
@@ -35,11 +36,73 @@
     </header>
     <div class="container">
       <div class="row">
+        <div class="car">
+
+        </div>
           <img src="cars/car.svg" alt="car1" class="car player-1"/>
+      </div>
+      <div class="winner">
+
       </div>
       <div class="row">
           <img src="cars/car2.svg" alt="car2" class="car player-2"/>
       </div>
-    </div>
+    </div> -->
+
+
+
+
+
+  <div id="container">
+      <button type="button" name="button" class=" btn-lg btn-primary begin">Begin Game</button>
+      <div id="car"></div>
+      <div id="pole_1" class="pole"></div>
+      <div id="pole_2" class="pole"></div>
+  </div>
+
+  <div id="score_div">
+      <p><b>Time: </b><span id="score">00:00:00</span></p>
+      <p><b>Select Difficulty:</b></p>
+      <select id="speed" name="Select Level">
+        <option value="30" selected >1</option>
+        <option value="25" >2</option>
+        <option value="20">3</option>
+        <option value="15">4</option>
+        <option value="10" >5</option>
+        <option value="5">6</option>
+      </select>
+  </div>
+
+  <button id="restart_btn" class="btn-primary">Restart</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>
