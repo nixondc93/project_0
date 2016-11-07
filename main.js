@@ -64,7 +64,7 @@ $(document).ready(function() {
 	var pole = $('.pole');
 	var pole_1 = $('#pole_1');
 	var pole_2 = $('#pole_2');
-	
+
 	var speed_span = $('#speed');
 	var restart = $('#restart_btn');
 
